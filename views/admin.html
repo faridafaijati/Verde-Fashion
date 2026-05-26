@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Verde Fashion</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body { padding: 20px; }
+        .admin-panel { max-width: 980px; margin: 0 auto; }
+        .admin-panel h1 { margin-bottom: 20px; }
+        .admin-field { margin-bottom: 18px; }
+        .admin-field label { display: block; margin-bottom: 6px; font-weight: bold; }
+        .admin-field input, .admin-field textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .admin-grid { display: grid; gap: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .admin-actions { margin-top: 24px; }
+        .admin-message { margin-top: 12px; color: #1a7f37; }
+        .admin-alert { color: #b03030; }
+    </style>
+</head>
+<body>
+    <div class="admin-panel">
+        <h1>Admin Verde Fashion</h1>
+        <p>Gunakan formulir ini untuk mengubah data konten situs secara manual.</p>
+
+        <form id="admin-form">
+            <div class="admin-field">
+                <label for="heroTitle">Judul Hero</label>
+                <input id="heroTitle" name="heroTitle" type="text">
+            </div>
+            <div class="admin-field">
+                <label for="heroText">Teks Hero</label>
+                <textarea id="heroText" name="heroText" rows="3"></textarea>
+            </div>
+            <div class="admin-field">
+                <label for="heroButton">Teks Tombol Hero</label>
+                <input id="heroButton" name="heroButton" type="text">
+            </div>
+            <div class="admin-field">
+                <label for="heroImage">URL Gambar Hero</label>
+                <input id="heroImage" name="heroImage" type="text">
+            </div>
+            <div class="admin-field">
+                <label for="featuredTitle">Judul Produk</label>
+                <input id="featuredTitle" name="featuredTitle" type="text">
+            </div>
+            <div class="admin-grid">
+                <div class="admin-field">
+                    <label for="menu1">Menu 1</label>
+                    <input id="menu1" name="menu1" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="menu2">Menu 2</label>
+                    <input id="menu2" name="menu2" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="menu3">Menu 3</label>
+                    <input id="menu3" name="menu3" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="menu4">Menu 4</label>
+                    <input id="menu4" name="menu4" type="text">
+                </div>
+            </div>
+            <div class="admin-field">
+                <label for="cartText">Teks Keranjang</label>
+                <input id="cartText" name="cartText" type="text">
+            </div>
+            <div class="admin-grid">
+                <div class="admin-field">
+                    <label for="product1Title">Produk 1 Judul</label>
+                    <input id="product1Title" name="product1Title" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product1Price">Produk 1 Harga</label>
+                    <input id="product1Price" name="product1Price" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product1Image">Produk 1 Gambar</label>
+                    <input id="product1Image" name="product1Image" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product1Alt">Produk 1 Alt</label>
+                    <input id="product1Alt" name="product1Alt" type="text">
+                </div>
+            </div>
+            <div class="admin-grid">
+                <div class="admin-field">
+                    <label for="product2Title">Produk 2 Judul</label>
+                    <input id="product2Title" name="product2Title" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product2Price">Produk 2 Harga</label>
+                    <input id="product2Price" name="product2Price" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product2Image">Produk 2 Gambar</label>
+                    <input id="product2Image" name="product2Image" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product2Alt">Produk 2 Alt</label>
+                    <input id="product2Alt" name="product2Alt" type="text">
+                </div>
+            </div>
+            <div class="admin-grid">
+                <div class="admin-field">
+                    <label for="product3Title">Produk 3 Judul</label>
+                    <input id="product3Title" name="product3Title" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product3Price">Produk 3 Harga</label>
+                    <input id="product3Price" name="product3Price" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product3Image">Produk 3 Gambar</label>
+                    <input id="product3Image" name="product3Image" type="text">
+                </div>
+                <div class="admin-field">
+                    <label for="product3Alt">Produk 3 Alt</label>
+                    <input id="product3Alt" name="product3Alt" type="text">
+                </div>
+            </div>
+            <div class="admin-field">
+                <label for="footerText">Teks Footer</label>
+                <textarea id="footerText" name="footerText" rows="2"></textarea>
+            </div>
+            <div class="admin-actions">
+                <button class="btn-primary" type="submit">Simpan Perubahan</button>
+                <div id="message" class="admin-message"></div>
+            </div>
+        </form>
+    </div>
+    <script>
+        async function loadAdminData() {
+            const res = await fetch('/api/data');
+            const data = await res.json();
+            document.getElementById('heroTitle').value = data.heroTitle;
+            document.getElementById('heroText').value = data.heroText;
+            document.getElementById('heroButton').value = data.heroButton;
+            document.getElementById('heroImage').value = data.heroImage;
+            document.getElementById('featuredTitle').value = data.featuredTitle;
+            document.getElementById('menu1').value = data.menu[0] || '';
+            document.getElementById('menu2').value = data.menu[1] || '';
+            document.getElementById('menu3').value = data.menu[2] || '';
+            document.getElementById('menu4').value = data.menu[3] || '';
+            document.getElementById('cartText').value = data.cartText;
+            document.getElementById('footerText').value = data.footerText;
+
+            data.products.forEach((product, index) => {
+                document.getElementById(`product${index + 1}Title`).value = product.title;
+                document.getElementById(`product${index + 1}Price`).value = product.price;
+                document.getElementById(`product${index + 1}Image`).value = product.image;
+                document.getElementById(`product${index + 1}Alt`).value = product.alt;
+            });
+        }
+
+        document.getElementById('admin-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = {
+                heroTitle: document.getElementById('heroTitle').value,
+                heroText: document.getElementById('heroText').value,
+                heroButton: document.getElementById('heroButton').value,
+                heroImage: document.getElementById('heroImage').value,
+                featuredTitle: document.getElementById('featuredTitle').value,
+                menu: [
+                    document.getElementById('menu1').value,
+                    document.getElementById('menu2').value,
+                    document.getElementById('menu3').value,
+                    document.getElementById('menu4').value
+                ],
+                cartText: document.getElementById('cartText').value,
+                footerText: document.getElementById('footerText').value,
+                products: [
+                    {
+                        title: document.getElementById('product1Title').value,
+                        price: document.getElementById('product1Price').value,
+                        image: document.getElementById('product1Image').value,
+                        alt: document.getElementById('product1Alt').value
+                    },
+                    {
+                        title: document.getElementById('product2Title').value,
+                        price: document.getElementById('product2Price').value,
+                        image: document.getElementById('product2Image').value,
+                        alt: document.getElementById('product2Alt').value
+                    },
+                    {
+                        title: document.getElementById('product3Title').value,
+                        price: document.getElementById('product3Price').value,
+                        image: document.getElementById('product3Image').value,
+                        alt: document.getElementById('product3Alt').value
+                    }
+                ]
+            };
+
+            const response = await fetch('/admin/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const message = document.getElementById('message');
+            if (response.ok) {
+                message.textContent = 'Perubahan berhasil disimpan.';
+                message.classList.remove('admin-alert');
+            } else {
+                message.textContent = 'Gagal menyimpan perubahan.';
+                message.classList.add('admin-alert');
+            }
+        });
+
+        loadAdminData();
+    </script>
+</body>
+</html>

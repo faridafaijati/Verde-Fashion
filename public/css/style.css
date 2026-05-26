@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 0 20px;
+}
+
+.menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.cart-icon {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+    background-color: #f9f9f9;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    background-color: #e0e0e0;
+    display: block;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 400px;
+    background-color: #e0e0e0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    font-size: 16px;
+}
+
+.featured-products {
+    padding: 60px 40px;
+}
+
+.featured-products h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.product-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    padding: 0;
+}
+
+.product-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.product-thumb {
+    width: 100%;
+    height: 350px;
+    background-color: #f0f0f0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888888;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.product-card p {
+    color: #666666;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #eeeeee;
+    font-size: 14px;
+    color: #888888;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    .menu a {
+        margin: 0 10px;
+        font-size: 12px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .placeholder-image {
+        height: 300px;
+    }
+
+    .featured-products {
+        padding: 40px 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .product-thumb {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .menu a {
+        margin: 5px 0;
+        font-size: 11px;
+    }
+
+    .cart-icon {
+        font-size: 12px;
+    }
+
+    .hero-text h1 {
+        font-size: 24px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .featured-products h2 {
+        font-size: 22px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-thumb {
+        height: 200px;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "heroTitle": "Koleksi Estetik Musim Gugur",
+  "heroText": "Temukan pakaian modern dengan desain minimalis dan kenyamanan maksimal.",
+  "heroButton": "Jelajahi Sekarang",
+  "heroImage": "/images/hero-product.svg",
+  "featuredTitle": "Produk Unggulan",
+  "products": [
+    {
+      "title": "Kemeja Verde Minimalis",
+      "price": "Rp 450.000",
+      "image": "/images/product-1.svg",
+      "alt": "Kemeja Verde Minimalis"
+    },
+    {
+      "title": "Jaket Katun Kasual",
+      "price": "Rp 750.000",
+      "image": "/images/product-2.svg",
+      "alt": "Jaket Katun Kasual"
+    },
+    {
+      "title": "Celana Linen Santai",
+      "price": "Rp 380.000",
+      "image": "/images/product-3.svg",
+      "alt": "Celana Linen Santai"
+    }
+  ],
+  "menu": ["Koleksi", "Pria", "Wanita", "Tentang Kami"],
+  "cartText": "Keranjang (0)",
+  "footerText": "© 2026 Verde Fashion. Hak Cipta Dilindungi."
+}
